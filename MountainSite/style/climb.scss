@@ -1,0 +1,154 @@
+@import "./variables";
+
+@mixin respond-to($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+.climb-container {
+  padding: 0% 22%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  @include respond-to($breakpoint-small) {
+    padding: 4% 15%;
+    flex-direction: column;
+  }
+}
+.climb-heading {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  p {
+    font-size: 9rem;
+    color: $light_primary_color;
+    font-weight: 700;
+    letter-spacing: -2px;
+  }
+}
+.climb-heading-sm {
+  display: flex;
+  flex-direction: row;
+  p {
+    font-size: 9rem;
+    color: $light_primary_color;
+    font-weight: 700;
+    letter-spacing: -2px;
+  }
+  h1 {
+    font-size: 25px;
+    text-transform: uppercase;
+    color: $blue_primary_color;
+    margin-top: 7rem;
+    margin-left: -19px;
+  }
+}
+
+.climb-content {
+  margin-left: 2%;
+  p {
+    opacity: 0.8;
+  }
+}
+.climb-mountain-container {
+  display: flex;
+  flex-direction: row;
+  background-color: $blue_primary_color;
+  padding: 0 20%;
+
+  h1 {
+    text-transform: uppercase;
+    color: $light_primary_color;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    padding: 1%;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 7px;
+      width: 88%;
+      height: 1px;
+      background-color: $light_primary_color;
+      top: 80%;
+    }
+
+    &:hover {
+      background-color: $light_primary_color;
+      color: $blue_primary_color;
+
+      &::before {
+        background-color: $blue_primary_color;
+        width: 100%;
+      }
+    }
+
+    @include respond-to($breakpoint-small) {
+      font-size: 18px;
+      padding: 2%;
+    }
+  }
+}
+
+.climb-schedule-container {
+  background-image: url("../assets/schedule.svg");
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  padding-top: 8%;
+}
+.climb-schedule-card {
+  width: 16rem;
+  padding: 1% 3%;
+  background-color: rgba(255, 255, 255, 0.675);
+  margin-left: 22%;
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: $blue_primary_color;
+  }
+
+  @include respond-to($breakpoint-small) {
+    margin-left: 6%;
+  }
+}
+.climb-schedule-low-content {
+  display: flex;
+  flex-direction: column;
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.climb-schedule-high-content {
+  display: flex;
+  flex-direction: column;
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 8%;
+  }
+}
+.bg-blue-primary {
+  background-color: $blue_primary_color;
+}
+.text-faded {
+  color: #61759e;
+  opacity: 0.7;
+}
+.image-faded {
+  opacity: 0.3;
+}
+
+.copyrights-text {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
